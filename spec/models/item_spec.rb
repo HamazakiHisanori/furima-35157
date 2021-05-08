@@ -76,6 +76,24 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include('Price is invalid')
     end
 
+    it 'priceが全角数字では出品できない' do
+      @item.price = '１００００'
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Price is invalid')
+    end
+
+    it 'priceが半角英字では出品できない' do
+      @item.price = 'sample'
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Price is invalid')
+    end
+
+    it 'priceが半角英数字混合では出品できない' do
+      @item.price = 'sample1000'
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Price is invalid')
+    end
+
     it 'userが紐付いていないと出品できない' do
       @item.user = nil
       @item.valid?
