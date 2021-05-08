@@ -31,31 +31,31 @@ RSpec.describe Item, type: :model do
     it 'category_idが1以外でないと出品できない' do
       @item.category_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category must be other than 1")
+      expect(@item.errors.full_messages).to include('Category must be other than 1')
     end
 
     it 'status_idが1以外でないと出品できない' do
       @item.status_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Status must be other than 1")
+      expect(@item.errors.full_messages).to include('Status must be other than 1')
     end
 
     it 'delivery_charge_idが1以外でないと出品できない' do
       @item.delivery_charge_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery charge must be other than 1")
+      expect(@item.errors.full_messages).to include('Delivery charge must be other than 1')
     end
 
     it 'prefecture_idが1以外でないと出品できない' do
       @item.prefecture_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+      expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
     end
 
     it 'day_idが1以外でないと出品できない' do
       @item.day_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Day must be other than 1")
+      expect(@item.errors.full_messages).to include('Day must be other than 1')
     end
 
     it 'priceが空だと出品できない' do
@@ -67,7 +67,7 @@ RSpec.describe Item, type: :model do
     it 'userが紐付いていないと出品できない' do
       @item.user = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("User can't be blank", "User must exist")
+      expect(@item.errors.full_messages).to include("User can't be blank", 'User must exist')
     end
   end
 end
