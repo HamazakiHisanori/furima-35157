@@ -1,7 +1,7 @@
 class OrderStreetaddress
   
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :address, :building_name, :phone_number, :user_id, :item_id
+  attr_accessor :postal_code, :prefecture_id, :city, :address, :building_name, :phone_number, :user_id, :item_id, :token
   
   with_options presence: true do
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "ハイフン(-)を入れて入力してください"}
@@ -11,6 +11,7 @@ class OrderStreetaddress
     validates :phone_number, format: {with: /\A\d{10,11}\z/, message: "ハイフン(-)なし10桁、又は11桁でお願い致します"}
     validates :user_id
     validates :item_id
+    validates :token
   end
   validate :building_name
 
