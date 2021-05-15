@@ -12,7 +12,6 @@ class OrderStreetaddress
     validates :item_id
     validates :token
   end
-  validate :building_name
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
