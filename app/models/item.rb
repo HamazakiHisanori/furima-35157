@@ -1,4 +1,9 @@
 class Item < ApplicationRecord
+
+  belongs_to :user
+  has_one :order
+  has_many_attached :images
+
   with_options presence: true do
     validates :images
     validates :name
@@ -14,10 +19,6 @@ class Item < ApplicationRecord
       validates :day_id
     end
   end
-
-  belongs_to :user
-  has_many_attached :images
-  has_one :order
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category

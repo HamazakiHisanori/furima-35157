@@ -22,9 +22,6 @@
         <%= f.file_field :images, name: 'item[images][]', id: 'item-image' %>
       </div>
       <div class="previews" id="image-preview"></div>
-      <% @item.images.each do |image| %>
-      <%= image_tag image, class:'images' %>
-      <% end %>
     </div>
     <%# /出品画像 %>
     <%#商品名と商品説明 %>
