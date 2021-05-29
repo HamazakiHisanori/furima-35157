@@ -108,6 +108,17 @@
   margin-top: 2vh;
 }
 
+.items-tag-line {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.child {
+  font-size: 16px;
+  margin: 10px;
+  border-bottom: solid 1px;
+}
+
 /* /商品名と商品説明 */
 
 /* 商品の詳細など */

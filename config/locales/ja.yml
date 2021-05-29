@@ -10,9 +10,10 @@ ja:
         birthday:  生年月日
 
       item:
-        image:  出品画像
+        images:  出品画像
         name:  商品名
         description:  商品の説明
+        tagname: タグ
         price:  販売価格
         category_id:  カテゴリー
         status_id:  商品の状態
@@ -22,6 +23,7 @@ ja:
 
   activemodel:
     attributes:
+
       order_streetaddress:
         postal_code:  郵便番号
         prefecture_id:  都道府県

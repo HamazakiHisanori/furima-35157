@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :root_item, only: [:edit, :update, :destroy]
   before_action :present_item, only: [:edit, :update, :destroy]
@@ -40,10 +40,17 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    return nil if params[:keyword] == ''
+
+    tag = Item.where(['tagname LIKE ?', "%#{params[:keyword]}%"]).select(:id, :tagname).group(:tagname)
+    render json: { keyword: tag }
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :status_id, :delivery_charge_id, :prefecture_id,
+    params.require(:item).permit(:name, :description, :tagname, :category_id, :status_id, :delivery_charge_id, :prefecture_id,
                                  :day_id, :price, images: []).merge(user_id: current_user.id)
   end
 
