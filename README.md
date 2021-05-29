@@ -21,6 +21,7 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | name               | string     | null: false                    |
+| tagname            | text       | null: false                    |
 | description        | text       | null: false                    |
 | category_id        | integer    | null: false                    |
 | status_id          | integer    | null: false                    |
@@ -72,19 +73,3 @@
 - belongs_to :user
 - belongs_to :item
 
-## tags テーブル
-| Column    | Type   | Options                       |
-| tagname   | string | null: false, uniqueness: true |
-
-### Association
-- has_many :items, through: :item_tag_relations
-- has_many :item_tag_relations
-
-## item_tag_relation
-| Column | Type       | Options                       |
-| item   | references | null: false, foreign_key: true|
-| tag    | references | null: false, foreign_key: true|
-
-### Association
-- belongs_to :item
-- belongs_to :tag
