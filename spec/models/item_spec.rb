@@ -10,8 +10,8 @@ RSpec.describe Item, type: :model do
       expect(@item).to be_valid
     end
 
-    it 'imageが空だと出品できない' do
-      @item.image = nil
+    it 'imagesが空だと出品できない' do
+      @item.images = nil
       @item.valid?
       expect(@item.errors.full_messages).to include('出品画像を入力してください')
     end
@@ -26,6 +26,12 @@ RSpec.describe Item, type: :model do
       @item.description = ''
       @item.valid?
       expect(@item.errors.full_messages).to include('商品の説明を入力してください')
+    end
+
+    it 'tagnameが空だと出品できない' do
+      @item.tagname = ''
+      @item.valid?
+      expect(@item.errors.full_messages).to include('タグを入力してください')
     end
 
     it 'category_idが1以外でないと出品できない' do
