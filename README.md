@@ -2,7 +2,7 @@
 
 ## users テーブル
 | Column             | Type    | Options                   |
-| ------------------ | ------- | ------------------------- | 
+| ------------------ | ------- | ------------------------- |
 | nickname           | string  | null: false               |
 | email              | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
@@ -26,7 +26,7 @@
 | category_id        | integer    | null: false                    |
 | status_id          | integer    | null: false                    |
 | delivery_charge_id | integer    | null: false                    |
-| prefecture_id      | integer    | null: false                    | 
+| prefecture_id      | integer    | null: false                    |
 | day_id             | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
@@ -35,8 +35,6 @@
 - has_many :comments
 - has_one :order
 - belongs_to :user
-- has_many :tags, through: :item_tag_relations
-- has_many :item_tag_relations 
 
 ## orders テーブル
 | Column | Type       | Options                        |

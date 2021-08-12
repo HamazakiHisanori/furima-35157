@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   before_action :order_item
 
   def index
-    @order_streetaddress = OrderStreetaddress.new
+   @order_streetaddress = OrderStreetaddress.new
   end
 
   def create
